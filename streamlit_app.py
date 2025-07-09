@@ -1324,10 +1324,13 @@ with tab2:
     # st.markdown("<div style='height:300px;'>", unsafe_allow_html=True)
     # st.pyplot(fig7, use_container_width=True)
     # st.markdown("</div>", unsafe_allow_html=True)
-    buf = io.BytesIO()
-    fig7.savefig(buf, format="png", dpi=dpi)
-    buf.seek(0)
-    st.image(buf, use_container_width=True)
+    buf7 = io.BytesIO()
+    fig7.savefig(buf7, format="png", dpi=dpi)
+    buf7.seek(0)
+    try:
+        st.image(buf7, use_container_width=True)
+    except Exception as e:
+        st.error(f"Error displaying fig7: {e}")
     # FIG8: AR and Inventory Cycle Days
     fig8, ax8 = plt.subplots(figsize=(6, 2.5))
     fig8.patch.set_facecolor('lightblue')
