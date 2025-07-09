@@ -9,6 +9,7 @@ import plotly.graph_objects as go
 import tempfile
 from fpdf import FPDF
 import io
+dpi=150
 
 
 st.set_page_config(layout="wide")
