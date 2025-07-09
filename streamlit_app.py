@@ -9,7 +9,6 @@ import plotly.graph_objects as go
 import tempfile
 from fpdf import FPDF
 import io
-dpi=150
 
 
 st.set_page_config(layout="wide")
@@ -1078,13 +1077,10 @@ with tab2:
     # st.markdown("<div style='height:300px;'>", unsafe_allow_html=True)
     # st.pyplot(fig1, use_container_width=True)
     # st.markdown("</div>", unsafe_allow_html=True)
-    try:
-        buf = io.BytesIO()
-        fig1.savefig(buf, format="png", dpi=dpi)
-        buf.seek(0)
-        st.image(buf, use_container_width=True)
-    except Exception as e:
-        st.error(f"❌ Error displaying fig1: {e}")
+    buf = io.BytesIO()
+    fig1.savefig(buf, format="png", dpi=dpi)
+    buf.seek(0)
+    st.image(buf, use_container_width=True)
     # FIG2: LTV and Interest Coverage Ratio
     # st.subheader("LTV and Interest Coverage Ratio")
     fig2, ax2 = plt.subplots(figsize=(6, 2.5))
@@ -1324,13 +1320,10 @@ with tab2:
     # st.markdown("<div style='height:300px;'>", unsafe_allow_html=True)
     # st.pyplot(fig7, use_container_width=True)
     # st.markdown("</div>", unsafe_allow_html=True)
-    buf7 = io.BytesIO()
-    fig7.savefig(buf7, format="png", dpi=dpi)
-    buf7.seek(0)
-    try:
-        st.image(buf7, use_container_width=True)
-    except Exception as e:
-        st.error(f"Error displaying fig7: {e}")
+    buf = io.BytesIO()
+    fig7.savefig(buf, format="png", dpi=dpi)
+    buf.seek(0)
+    st.image(buf, use_container_width=True)
     # FIG8: AR and Inventory Cycle Days
     fig8, ax8 = plt.subplots(figsize=(6, 2.5))
     fig8.patch.set_facecolor('lightblue')
